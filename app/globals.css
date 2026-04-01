@@ -1,26 +1,206 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-space), system-ui, sans-serif; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+::selection { background: rgba(255,255,255,0.15); color: #fff; }
+
+/* ── Container ── */
+.wrap {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  width: 100%;
+}
+@media (max-width: 640px) {
+  .wrap { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Eyebrow labels ── */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #737373;
+  display: block;
+  margin-bottom: 14px;
+}
+
+/* ── Section headings ── */
+.section-heading {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  color: #f0f0f0;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+/* ── Cards ── */
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: box-shadow 0.25s, border-color 0.3s ease, transform 0.25s;
+}
+.card:hover {
+  border-color: rgba(255, 170, 112, 0.35);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Skill tags ── */
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #c0c0c0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+}
+
+/* ── Project tags ── */
+.ptag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #c0c0c0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+}
+
+/* ── Responsive grids ── */
+.grid-hero { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+@media (min-width: 1024px) { .grid-hero { grid-template-columns: 1fr 400px; gap: 80px; } }
+
+.grid-two { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+@media (min-width: 1024px) { .grid-two { grid-template-columns: 1fr 420px; gap: 80px; } }
+
+.grid-two-equal { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+@media (min-width: 768px) { .grid-two-equal { grid-template-columns: 1fr 1fr; gap: 80px; } }
+
+.grid-four { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (min-width: 1024px) { .grid-four { grid-template-columns: repeat(4, 1fr); } }
+
+.grid-three { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px)  { .grid-three { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid-three { grid-template-columns: repeat(3, 1fr); } }
+
+.grid-projects { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .grid-projects { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-inner { display: flex; width: max-content; animation: marquee 52s linear infinite; }
+.marquee-inner:hover { animation-play-state: paused; }
+.marquee-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.marquee-wrap::before,
+.marquee-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrap::before { left: 0;  background: linear-gradient(to right, #0d0d0d, transparent); }
+.marquee-wrap::after  { right: 0; background: linear-gradient(to left,  #0d0d0d, transparent); }
+
+/* ── Dot grid (hero) ── */
+@keyframes dotScroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 32px 32px; }
+}
+
+/* ── Blob animations ── */
+@keyframes blob1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33%       { transform: translate(-24px,18px) scale(1.06); }
+  66%       { transform: translate(18px,-24px) scale(0.94); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  40%       { transform: translate(32px,-18px) scale(1.08); }
+  80%       { transform: translate(-16px,28px) scale(0.96); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%       { transform: translate(-20px,-20px) scale(1.05); }
+}
+
+/* ── Float animation for decorative elements ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── Particle drift (Hero + Contact backgrounds) ── */
+@keyframes particleDrift {
+  0%, 100% { transform: translate(0px,   0px);  }
+  25%       { transform: translate(6px,  -16px); }
+  50%       { transform: translate(-4px, -28px); }
+  75%       { transform: translate(-9px, -12px); }
+}
+@keyframes particleDrift2 {
+  0%, 100% { transform: translate(0px,  0px);   }
+  30%       { transform: translate(14px, 8px);   }
+  60%       { transform: translate(6px,  20px);  }
+  80%       { transform: translate(-8px, 10px);  }
+}
+@keyframes particleDrift3 {
+  0%, 100% { transform: translate(0px,   0px);  }
+  20%       { transform: translate(-12px,-10px); }
+  50%       { transform: translate(-20px, 6px);  }
+  75%       { transform: translate(-6px,  18px); }
+}
+@keyframes particleDrift4 {
+  0%, 100% { transform: translate(0px,  0px);   }
+  25%       { transform: translate(18px,-6px);   }
+  55%       { transform: translate(10px, 14px);  }
+  80%       { transform: translate(-4px, 8px);   }
+}
+
+/* ── Timeline dot pulse (Experience section) ── */
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(255,170,112,0.5); }
+  50%       { box-shadow: 0 0 0 7px rgba(255,170,112,0);   }
 }
