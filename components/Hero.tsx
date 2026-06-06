@@ -121,7 +121,7 @@ export default function Hero() {
             </div>
 
             <p style={{ color: "#c0c0c0", fontSize: "1rem", lineHeight: 1.78, marginBottom: "28px", maxWidth: "480px" }}>
-              Understanding what the business is actually trying to solve matters more than jumping straight into a tool. Tools are easy. Knowing what question to ask is the hard part - and that's the part I enjoy most.
+              Understanding what the business is actually trying to solve matters more than jumping straight into a tool. Tools are easy. Knowing what question to ask is the hard part, and that's the part I enjoy most.
             </p>
 
             <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#c0c0c0", fontSize: "0.8rem", marginBottom: "36px" }}>
