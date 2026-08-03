@@ -39,10 +39,28 @@ export const education = [
 
 export const experience = [
   {
+    role: "Data Analyst",
+    company: "Chronochip",
+    location: "Boston, Massachusetts, United States · Remote",
+    period: "Mar 2026 - Jun 2026",
+    type: "Full-time",
+    bullets: [
+      "Structured an event tracking framework across onboarding, engagement, and application status events, logging each as timestamped data in PostgreSQL and Mixpanel to build a measurement foundation from the ground up.",
+      "Analyzed the onboarding funnel in Mixpanel across two testing phases and found only 60% of users completed interest selection in phase one, the biggest drop off point in the entire flow.",
+      "Traced the drop off to a category selection limit forcing users with overlapping interests to abandon the step, and after the limit was adjusted, completion rose to about 83% in phase two.",
+    ],
+    detail: [
+      "Building the analytics foundation for CosmiWork, a professional networking platform in beta built to solve real gaps in tools like LinkedIn, where applications go in and you get no visibility into what happens after. My role was making sure every product decision was backed by data, not guesswork, for a team with no prior analytics in place.",
+      "I structured an event tracking framework across onboarding, engagement, and application status events, logging each as timestamped data in PostgreSQL and Mixpanel to build a measurement foundation from the ground up. Once real users started testing the product, I analyzed the onboarding funnel in Mixpanel across two testing phases and found only 60% of users completed interest selection in phase one, the biggest drop off point in the entire flow.",
+      "I traced the cause to a category selection limit that was forcing users with overlapping interests to abandon the step mid decision, since whatever they selected there directly shaped their feed and connections afterward. After the limit was adjusted, completion rose to about 83% in phase two, giving the founders a validated direction heading into the next iteration.",
+      "At an early stage startup, there is no room for guesswork. This role taught me that the real value of analytics is not the dashboard, it is giving a small team the clarity to make the right call at the right time.",
+    ],
+  },
+  {
     role: "Data Analyst Volunteer",
     company: "Bright Mind Enrichment",
     location: "Remote, United States",
-    period: "Aug 2025 - Present",
+    period: "Aug 2025 - Mar 2026",
     type: "Volunteer",
     bullets: [
       "Took raw volunteer participation and survey data that was sitting in messy Excel sheets and turned it into something the team could actually use, cleaning inconsistencies, standardizing formats, and removing duplicate records across reporting cycles.",
@@ -50,11 +68,11 @@ export const experience = [
       "Identified a consistent participation drop-off pattern after the first few sessions of each program cycle, a finding the team hadn't spotted before, and flagged it alongside survey themes pointing to scheduling and communication gaps.",
     ],
     detail: [
-      "After completing my Master's in Business Analytics, I wanted to stay hands-on with real data while searching for the right full-time role. I joined Bright Mind Enrichment, a nonprofit focused on community wellness and youth enrichment programs across the US, as a volunteer Data Analyst.",
-      "The organization was managing everything in spreadsheets but the data was inconsistent and hard to draw reliable conclusions from. My first task was bringing structure to that. I cleaned and standardized participation records for 300+ volunteers across multiple program cycles, resolving formatting inconsistencies, missing entries, and duplicate records across Google Sheets and Excel. Once the data was clean it fed directly into reporting for board directors and sponsors who needed visibility into volunteer acquisition, program reach, and how resources were being allocated.",
-      "The more interesting work came from the engagement dashboards I built to track volunteer intake and program performance over time. What the data revealed was a consistent pattern of early-stage drop-off. New volunteers were disengaging in the first few weeks at a higher rate than expected. After investigating, I traced the root cause to onboarding gaps. New volunteers had a lot of unanswered questions and were not getting the information they needed upfront, which led to disengagement before they could become active contributors.",
-      "I recommended restructuring the orientation workflow so all key information including programs, expectations, and how to get involved was covered on day one rather than trickling in over email. I also put together a presentation covering what BME does, who they serve, and how volunteers fit into the mission, giving new joiners a clear and motivating picture from the start.",
-      "For a small team without dedicated analytics support, having clean organized data and a clear picture of engagement trends made a real difference in how they planned and ran their programs.",
+      "After completing my Master's in Business Analytics, I wanted to stay hands-on with real data while searching for the right full-time role. I joined Bright Mind Enrichment, a nonprofit running close to nine community wellness, mentoring, and outreach programs, as a volunteer Data Analyst.",
+      "The organization had no consolidated way to see how staffing and engagement were actually holding up across all of its programs. I tracked weekly volunteer retention and staffing levels across 8+ programs using a Power BI dashboard connected to Excel, and found a real imbalance. One-on-one programs like mentoring and outreach retained volunteers well, since people were committed to a specific paired individual, while instructor-led programs depended on just a handful of people running sessions for far larger groups. That gap mattered because it meant staffing risk looked very different program to program, not something leadership could treat as one uniform problem.",
+      "The other piece of the work came from the raw interaction logs volunteers had been recording independently. Street Care outreach volunteers logged every check-in, and mentors logged every session, but nobody had ever pulled that data together into something usable. I compiled both into Excel and used pivot tables to summarize over 150 check-ins and sessions, which surfaced that food and shelter-related needs came up most often during outreach.",
+      "I brought both findings to leadership. The staffing analysis gave them a concrete place to focus recruiting instead of guessing, and the outreach summary directly shaped what volunteers were equipped with before going out into the field.",
+      "For a small nonprofit without dedicated analytics support, having a clear, structured view of staffing gaps and community needs made a real difference in how they planned and ran their programs.",
     ],
   },
   {
